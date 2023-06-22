@@ -219,7 +219,61 @@ Este código  define dos funciones relacionadas con la carga y el guardado de un
 
 En resumen, este código define dos funciones: `cargar_catalogo()` para cargar un catálogo desde un archivo y sobrescribir el contenido anterior del catálogo, y `guardar_catalogo()` para guardar el catálogo actual en un archivo. Ambas funciones manejan excepciones para mostrar mensajes de error en caso de problemas durante la carga o el guardado del catálogo.
 
- 
+ 5. Menu
+
+Este código implementa un menú interactivo para agregar nuevos productos a una lista llamada `menu_productos`. Los productos pueden ser películas, series, documentales o eventos deportivos en vivo.
+
+El código comienza definiendo una lista vacía llamada `menu_productos` que se utilizará para almacenar los productos ingresados por el usuario.
+
+A continuación, se definen varias funciones para agregar diferentes tipos de productos:
+
+La función `agregar_producto()` muestra un menú con opciones para seleccionar el tipo de producto a agregar. Dependiendo de la opción elegida, se invoca la función correspondiente para agregar ese tipo de producto.
+
+La función `agregar_pelicula()` solicita al usuario ingresar los datos de una película, como el título, el actor principal, el director, el año, el costo de renta y el costo de venta. Luego, crea un diccionario con esos datos y lo agrega a la lista `menu_productos`.
+
+La función `agregar_serie()` funciona de manera similar a `agregar_pelicula()`, pero solicita los datos específicos de una serie, como el número de temporadas.
+
+La función `agregar_documental()` solicita al usuario ingresar los datos de un documental, como el título, el director, el tema, el año, el costo de renta y el costo de venta. Luego, agrega un diccionario con esos datos a la lista `menu_productos`.
+
+La función `agregar_evento_deportivo()` solicita al usuario ingresar los datos de un evento deportivo en vivo, como el título, el deporte, la fecha, la hora, el lugar y el costo de venta. Luego, agrega un diccionario con esos datos a la lista `menu_productos`.
+
+Cada función de agregar producto imprime un mensaje indicando que el producto ha sido agregado exitosamente.
+
+En general, este código permite al usuario agregar productos a la lista `menu_productos` seleccionando el tipo de producto y proporcionando los detalles específicos de cada tipo de producto.
+
+6. Mostrar.
+
+Este código implementa un menú interactivo para mostrar el catálogo de productos. El catálogo es proporcionado por el módulo `menu` (que no se muestra en el código proporcionado, pero se asume que contiene una lista llamada `menu_productos` con los productos).
+
+El código define varias funciones para mostrar diferentes categorías de productos:
+
+La función `mostrar_menu()` muestra el menú de opciones y solicita al usuario que seleccione una opción. Dependiendo de la opción elegida, se invoca la función correspondiente para mostrar la categoría de productos correspondiente. Si se selecciona la opción "5. Todo", se muestra el catálogo completo llamando a la función `mostrar_todo()`. Si se selecciona la opción "6. Regresar", se sale de la función y regresa al punto desde donde se llamó.
+
+Las funciones `mostrar_peliculas()`, `mostrar_series()`, `mostrar_documentales()` y `mostrar_eventos_deportivos()` recorren la lista de productos en `menu.menu_productos` y recopilan los productos que pertenecen a la categoría correspondiente. Luego, imprime los detalles de cada producto utilizando la función `print_producto()`.
+
+La función `mostrar_todo()` simplemente recorre la lista `menu.menu_productos` y muestra los detalles de cada producto utilizando la función `print_producto()`.
+
+La función `print_producto(producto)` imprime los detalles de un producto específico. Muestra el tipo de producto, el título y otros detalles relevantes dependiendo del tipo de producto. Por ejemplo, para películas y series, se muestra el actor principal y el director. Para series, también se muestra el número de temporadas. Para documentales, se muestra el tema. Para eventos deportivos en vivo, se muestra el deporte, la fecha, la hora y el lugar. Además, se muestra el costo de renta y el costo de venta de cada producto.
+
+En resumen, este código permite al usuario seleccionar diferentes categorías de productos para mostrar en el catálogo, incluyendo la opción de mostrar todo el catálogo completo. Cada categoría se muestra con sus respectivos detalles y se indica si no hay productos en esa categoría.
+
+7. Main
+
+Este código implementa un programa principal que utiliza diferentes módulos para realizar operaciones en un catálogo de productos. A continuación, se explica el flujo del programa:
+
+Se importan los módulos necesarios para que el programa pueda funcionar. Los módulos importados son `eliminar`, `mostrar`, `menu`, `buscar`, `agregar` y `file`. Estos módulos contienen las funciones y lógica necesaria para realizar operaciones específicas en el catálogo de productos.
+
+Se define la función `menu_principal()` que muestra el menú principal del programa. El menú presenta varias opciones para seleccionar, como agregar un producto, buscar un producto, eliminar un producto, mostrar el catálogo, cargar el catálogo desde un archivo y guardar el catálogo en un archivo. Además, hay una opción para salir del programa. El usuario selecciona una opción ingresando el número correspondiente.
+
+La función `ejecutar_opcion(opcion)` recibe la opción seleccionada por el usuario y ejecuta la operación correspondiente según la opción seleccionada. Cada opción invoca la función correspondiente del módulo respectivo. Por ejemplo, si la opción es "1", se llama a la función `agregar.menu_agregar()` del módulo `agregar` para agregar un producto al catálogo.
+
+La función `main()` es el punto de entrada del programa. Se ejecuta en un bucle infinito hasta que el usuario seleccione la opción "7" para salir. Dentro del bucle, se muestra el menú principal, se obtiene la opción seleccionada y se ejecuta esa opción llamando a `ejecutar_opcion(opcion)`. Si la opción seleccionada es "7", se rompe el bucle y el programa finaliza.
+
+La sentencia `if __name__ == "__main__":` asegura que el código dentro de `main()` se ejecute solo si el módulo se ejecuta como programa principal. Esto evita que el código se ejecute si el módulo se importa en otro lugar.
+
+En resumen, este código crea un programa principal que interactúa con el usuario a través de un menú y utiliza diferentes módulos para realizar operaciones en un catálogo de productos, como agregar, buscar, eliminar, mostrar y gestionar el catálogo en archivos.
+
+
 # DIAGRAMA DE ESTRUCTURA
 Este diagrama representa las principales funciones y estructuras de datos utilizadas en el código. Estas funciones son clave para el funcionamiento del programa y gestionan las diferentes acciones que se pueden realizar en el catálogo de productos. A continuación, se describen brevemente estas funciones:
 
